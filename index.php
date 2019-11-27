@@ -1,26 +1,10 @@
 <?php
 require_once 'db.php';
 require_once 'show.php';
+// require_once 'store.php';
 
-// $users[] = [
-//     'name' => 'John',
-//     'date' => '20-20-20',
-//     'comment' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-//
-// ];
-// $users[] = [
-//     'name' => 'mary',
-//     'date' => '20-20-20',
-//     'comment' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-//
-// ];
-// $users[] = [
-//     'name' => 'larry',
-//     'date' => '20-20-20',
-//     'comment' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-//
-// ];
-
+session_start();
+var_dump($_SESSION['msg']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,11 +58,13 @@ require_once 'show.php';
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header"><h3>Комментарии</h3></div>
-
                             <div class="card-body">
-                              <div class="alert alert-success" role="alert">
-                                Комментарий успешно добавлен
-                              </div>
+                                <?php echo $_SESSION['msg'] ?>
+                              <!-- <?php if ($_SESSION['msg'] !== null): ?>
+                                  <div class="alert alert-success" role="alert">
+                                      Комментарий успешно добавлен
+                                  </div>
+                              <?php endif; ?> -->
                               <?php foreach($users as $user): ?>
                                 <div class="media">
                                   <img src="img/no-user.jpg" class="mr-3" alt="..." width="64" height="64">
